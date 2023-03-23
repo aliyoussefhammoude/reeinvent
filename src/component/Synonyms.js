@@ -17,23 +17,21 @@ function Synonyms() {
   const [output, setOutput] = useState([]);
 
   // function that handles the change event of the input element
-  function handleChange(event) {
-    // Get the value of the input element
-    const value = event.target.value;
+    function handleChange(event) {
+        const value = event.target.value;
+        let matchingWords = [];
 
-    // Set the input state to the value
-    setInput(value);
+        Object.entries(words).forEach(([word, synonyms]) => {
+            if ((word.includes(value) || synonyms.includes(value)) && word !== value) {
+            matchingWords.push(word, ...synonyms.filter(synonym => synonym !== value));
+            }
+        });
 
-    // Check if the value is a valid word in the words object
-    if (words[value]) {
-      // Set the output state to the array of synonyms for that word
-      setOutput(words[value]);
-    } else {
-      // Set the output state to an empty array
-      setOutput([]);
+        setOutput([...new Set(matchingWords)]);
+        setInput(value);
     }
-  }
 
+  
   //function that handles the submit event of the form element
   function handleSubmit(event) {
     event.preventDefault();
@@ -94,7 +92,8 @@ function Synonyms() {
      <hr />
      <label htmlFor="search">Search for synonyms:</label>
      <input type="text" id="search" name="search" value={input} onChange={handleChange} />
-     {output.length > 0 && (
+     {input && 
+     output.length > 0 && (
        <>
          <h2>Synonyms for {input}:</h2>
          <ul>
@@ -104,6 +103,7 @@ function Synonyms() {
          </ul>
        </>
      )}
+     
    </div>
  );
 }
