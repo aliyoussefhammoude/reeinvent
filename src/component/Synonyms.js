@@ -102,7 +102,7 @@ function Synonyms() {
             onChange={(e) => setSynonyms(e.target.value)}
           />
         </div>
-        <div className="submitBtn">
+        <div className="submitBtnDiv">
           <button type="submit" className="submit-btn">
             + Add word
           </button>
@@ -116,7 +116,7 @@ function Synonyms() {
             <table class="styled-table">
               <thead>
                   <tr>
-                      <th>Synonym for: {input}</th>
+                      <th className="tableTitle">Synonym for: <span className="synonymInput"> {input}</span></th>
                   </tr>
               </thead>
               <tbody>
