@@ -1,6 +1,8 @@
 // Import React and useState hook
 import React, { useState } from "react";
 
+import './Synonyms.css';
+
 
 function Synonyms() {
   // state variable called words that stores an object with words as keys and arrays of synonyms as values
@@ -84,27 +86,41 @@ function Synonyms() {
    <div className="Synonyms">
      <h1>Synonyms Search</h1>
      <form onSubmit={handleSubmit}>
-       <label htmlFor="word">Enter a new word:</label>
-       <input type="text" id="word" name="word" />
-       <label htmlFor="word">Enter synonyms separated by commas:</label>
-       <input type="text" id="synonym" name="synonym" onChange={(e) => setSynonyms(e.target.value)} />
-       <button type="submit">Add</button>
-     </form>
+        <div className="input-group">
+          <label htmlFor="name">Enter a new word:</label>
+          <input
+            type="text"
+            id="name" name="word"
+          />
+        </div>
+        <div className="input-group">
+          <label htmlFor="synonym">Enter synonyms separated by commas:</label>
+          <input
+            type="synonym"
+            id="synonym" name="synonym"
+            onChange={(e) => setSynonyms(e.target.value)}
+          />
+        </div>
+        <button type="submit" className="submit-btn">
+          Submit
+        </button>
+      </form>
      <hr />
-     <label htmlFor="search">Search for synonyms:</label>
-     <input type="text" id="search" name="search" value={input} onChange={handleChange} />
-     {input && 
-     output.length > 0 && (
-       <>
-         <h2>Synonyms for {input}:</h2>
-         <ul>
-           {output.map((synonym) => (
-             <li key={synonym}>{synonym}</li>
-           ))}
-         </ul>
-       </>
-     )}
-     
+     <div className="input-group-result">
+      <label htmlFor="search">Search for synonyms:</label>
+      <input type="text" id="search" name="search" value={input} onChange={handleChange} />
+      {input && 
+        output.length > 0 && (
+          <div className="synonymList">
+            <h2 className="synonymInput">Synonyms for {input}:</h2>
+            <ul className="listContainer">
+              {output.map((synonym) => (
+                <li className="lists" key={synonym}>{synonym}</li>
+              ))}
+            </ul>
+          </div>
+      )}
+     </div>
    </div>
  );
 }
