@@ -20,19 +20,22 @@ function Synonyms() {
   const [output, setOutput] = useState([]);
 
   // function that handles the change event of the input element
-    function handleChange(event) {
-        const value = event.target.value;
-        let matchingWords = [];
+  function handleChange(event) {
+    const value = event.target.value.toLowerCase();
+    let matchingWords = [];
 
-        Object.entries(words).forEach(([word, synonyms]) => {
-            if ((word.includes(value) || synonyms.includes(value)) && word !== value) {
-            matchingWords.push(word, ...synonyms.filter(synonym => synonym !== value));
-            }
-        });
+    Object.entries(words).forEach(([word, synonyms]) => {
+        const lowercaseWord = word.toLowerCase();
+        const lowercaseSynonyms = synonyms.map(synonym => synonym.toLowerCase());
+        
+        if ((lowercaseWord.includes(value) || lowercaseSynonyms.includes(value.toLowerCase())) && lowercaseWord !== value.toLowerCase()) {
+            matchingWords.push(word, ...synonyms.filter(synonym => synonym.toLowerCase() !== value.toLowerCase()));
+        }
+    });
 
-        setOutput([...new Set(matchingWords)]);
-        setInput(value);
-    }
+    setOutput([...new Set(matchingWords)]);
+    setInput(event.target.value);
+  }
 
   
   //function that handles the submit event of the form element
@@ -111,7 +114,7 @@ function Synonyms() {
      <div className="input-group-result">
       <label className="search" htmlFor="search">Search for synonyms:</label>
       <input type="text" id="search" name="search" value={input} onChange={handleChange} />
-      {input && 
+      {input &&
         output.length > 0 && (
             <table class="styled-table">
               <thead>
@@ -128,6 +131,7 @@ function Synonyms() {
               </tbody>
           </table>
       )}
+      {input && !(output.length > 0) && <div>Word doesn't exist</div>}
      </div>
    </div>
  );

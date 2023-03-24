@@ -113,3 +113,10 @@ form > div {
   text-align: left;
   display: block;
 }
+
+.exist {
+  display: none;
+}
+.open {
+  display: block;
+}
