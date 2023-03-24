@@ -47,7 +47,11 @@ function Synonyms() {
 
     // Check if it is not empty and not already in the words object
     if (value && !words[value]) {
-
+      // Get the form element
+      const myForm = document.getElementById("myForm");
+        // Reset the form values
+        myForm.reset();
+        
       // Check if synonyms are entered
       if (synonyms) {
         // Split synonyms by commas and trim whitespace
@@ -78,7 +82,7 @@ function Synonyms() {
    }
 
    else{
-     alert("Invalid or duplicate word.");
+     alert("Please write a new word");
    }
 
    setInput("");
@@ -88,7 +92,7 @@ function Synonyms() {
  return (
    <div className="Synonyms">
     <div className="cover"></div>
-     <form onSubmit={handleSubmit}>
+     <form id="myForm" onSubmit={handleSubmit}>
       <h1 className="title">Synonyms Search</h1>
         <div className="input-group">
           <label htmlFor="name">Enter a new word:</label>
