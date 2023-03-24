@@ -84,8 +84,9 @@ function Synonyms() {
 
  return (
    <div className="Synonyms">
-     <h1>Synonyms Search</h1>
+    <div className="cover"></div>
      <form onSubmit={handleSubmit}>
+      <h1 className="title">Synonyms Search</h1>
         <div className="input-group">
           <label htmlFor="name">Enter a new word:</label>
           <input
@@ -102,23 +103,28 @@ function Synonyms() {
           />
         </div>
         <button type="submit" className="submit-btn">
-          Submit
+          + Add word
         </button>
       </form>
-     <hr />
      <div className="input-group-result">
-      <label htmlFor="search">Search for synonyms:</label>
+      <label className="search" htmlFor="search">Search for synonyms:</label>
       <input type="text" id="search" name="search" value={input} onChange={handleChange} />
       {input && 
         output.length > 0 && (
-          <div className="synonymList">
-            <h2 className="synonymInput">Synonyms for {input}:</h2>
-            <ul className="listContainer">
-              {output.map((synonym) => (
-                <li className="lists" key={synonym}>{synonym}</li>
-              ))}
-            </ul>
-          </div>
+            <table class="styled-table">
+              <thead>
+                  <tr>
+                      <th>Synonym for: {input}</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <td>
+                    {output.map((synonym) => (
+                        <tr key={synonym}>{synonym}</tr>
+                    ))}
+                </td>
+              </tbody>
+          </table>
       )}
      </div>
    </div>
