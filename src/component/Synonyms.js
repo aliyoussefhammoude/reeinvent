@@ -9,6 +9,7 @@ function Synonyms() {
     wash: ["clean", "rinse", "scrub"],
     purify: ["clean", "refine", "clarify"],
   });
+  const [synonyms, setSynonyms] = useState('');
 
   // state variable called input that stores the user input
   const [input, setInput] = useState("");
@@ -41,8 +42,6 @@ function Synonyms() {
 
     // Check if it is not empty and not already in the words object
     if (value && !words[value]) {
-      // Prompt for synonyms separated by commas
-      const synonyms = prompt("Enter synonyms for " + value + ", separated by commas:");
 
       // Check if synonyms are entered
       if (synonyms) {
@@ -87,6 +86,8 @@ function Synonyms() {
      <form onSubmit={handleSubmit}>
        <label htmlFor="word">Enter a new word:</label>
        <input type="text" id="word" name="word" />
+       <label htmlFor="word">Enter synonyms separated by commas:</label>
+       <input type="text" id="synonym" name="synonym" onChange={(e) => setSynonyms(e.target.value)} />
        <button type="submit">Add</button>
      </form>
      <hr />
