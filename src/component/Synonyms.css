@@ -18,7 +18,7 @@ form {
   border-radius: 10px;
   margin: 3rem auto;
   width: 400px;
-  max-width: 70%;
+  max-width: 60%;
   padding: 0 3rem 0 3rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
   position: relative;
@@ -62,7 +62,7 @@ form > div {
   border-radius: 10px;
   margin: 3rem auto;
   width: 400px;
-  max-width: 70%;
+  max-width: 60%;
   padding: 2rem 3rem 2rem 3rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
