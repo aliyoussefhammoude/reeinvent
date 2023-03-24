@@ -131,7 +131,7 @@ function Synonyms() {
               </tbody>
           </table>
       )}
-      {input && !(output.length > 0) && <div>Word doesn't exist</div>}
+      {input && !(output.length > 0) && <div className="exist">Word doesn't exist</div>}
      </div>
    </div>
  );

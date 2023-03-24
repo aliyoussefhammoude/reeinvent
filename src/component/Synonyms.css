@@ -115,8 +115,5 @@ form > div {
 }
 
 .exist {
-  display: none;
-}
-.open {
-  display: block;
+  margin-top: 1rem;
 }
