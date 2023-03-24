@@ -17,12 +17,14 @@ form {
   background-color: white;
   border-radius: 10px;
   margin: 3rem auto;
-  width: 500px;
-  max-width: 80%;
-  padding: 1rem;
+  width: 400px;
+  max-width: 70%;
+  padding: 0 3rem 0 3rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 3;
+  display: flex;
+  flex-direction: column;
 }
 form > div {
   display: flex;
@@ -39,6 +41,7 @@ form > div {
   font-size: 0.9rem;
   font-weight: 700;
   margin-bottom: 0.3rem;
+  text-align: left;
 }
 .submit-btn {
   width: 10rem;
@@ -51,32 +54,18 @@ form > div {
   font-weight: 700;
   cursor: pointer;
 }
-.dialog-box {
-  margin: 0.5rem 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
-  grid-gap: 1rem;
-}
-.dialog-box > input,
-.dialog-box > select {
-  padding: 0.5rem 0.5rem;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-}
-.dialog-box > input:focus,
-.dialog-box > select:focus {
-  outline: none;
-}
-.hide {
-  display: none;
+.submitBtn {
+  justify-content: flex-end;
+  margin-top: 2rem;
 }
 
 .input-group-result {
   background-color: white;
   border-radius: 10px;
   margin: 3rem auto;
-  width: 500px;
-  max-width: 80%;
-  padding: 1rem;
+  width: 400px;
+  max-width: 70%;
+  padding: 2rem 3rem 2rem 3rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -86,7 +75,7 @@ form > div {
 .input-group-result > label {
   font-size: 0.9rem;
   font-weight: 700;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.3rem; text-align: left;
 }
 
 .search {

@@ -102,9 +102,11 @@ function Synonyms() {
             onChange={(e) => setSynonyms(e.target.value)}
           />
         </div>
-        <button type="submit" className="submit-btn">
-          + Add word
-        </button>
+        <div className="submitBtn">
+          <button type="submit" className="submit-btn">
+            + Add word
+          </button>
+        </div>
       </form>
      <div className="input-group-result">
       <label className="search" htmlFor="search">Search for synonyms:</label>
